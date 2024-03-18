@@ -19,10 +19,15 @@ LE* Find(LE* header, int target_key);
 LE* FindPrevious(LE* header, int target_key);
 
 void Insert(LE* header, int inserted_key, int target_key){
-    // Find로 target_key 노드 찾기
-    // inserted_key를 malloc을 이용해 생성
-    // inserted_key 노드의 next_pointer 를 target_key의 next_pointer로 저장
-    // target_key 노드의 next_pointer 를 inserted_key의 메모리 주소로 저장
+    if(Find(header, target_key) != NULL)
+		printf("insertion [%d] failed : the key already exists", target_key);
+	else{
+		// Find로 target_key 노드 찾기
+		// inserted_key를 malloc을 이용해 생성
+		// inserted_key 노드의 next_pointer 를 target_key의 next_pointer로 저장
+    	// target_key 노드의 next_pointer 를 inserted_key의 메모리 주소로 저장
+	}	
+    
 }
 
 void Delete(LE* header, int target_key){
@@ -33,14 +38,22 @@ void Delete(LE* header, int target_key){
 }
 
 LE* Find(LE* header, int target_key){
-    // 포인터 current를 header로 설정
-    // current 의 next_pointer가 NULL인지 체크
-    // NULL일 경우 current 반환
-    return NULL;
+    LE* current;
+
+	current = header;// 포인터 current를 header로 설정
+    while(current!=NULL && current->key != target_key) // current 의 next_pointer가 NULL인지 체크
+		current = current->next_pointer;
+	if(current->key != NULL)
+		return current;
+	else	
+    return NULL;// NULL일 경우 current 반환
+    
 }
 
 LE* FindPrevious(LE* header, int target_key){
-    // 포인터 current를 header로 설정
+    LE* current;
+
+	current = header;// 포인터 current를 header로 설정
     // current 의 next_pointer 의 next_pointer가 NULL인지 체크
     // NULL일 경우 current 반환
     return NULL;
@@ -55,7 +68,10 @@ void PrintList(LE* header){
 }
 
 LE* CreateList(){
-    //malloc을 이용하여 header 생성
+    LE* L;
+	L = (LE*)malloc(sizeof(LE)); //malloc을 이용하여 header 생성
+	L->key = 0;
+	L->next_pointer = NULL;
 }
 
 void DeleteList(LE* header){
