@@ -29,7 +29,7 @@ void Insert(LE* header, int inserted_key, int target_key){
     
 	else{ // 단방향 연결리스트의 삽입 과정 진행 
 		LE* new_insert = (LE*)malloc(sizeof(LE)); // insert를 위해 새로운 노드 생성
-		new_insert->key = inserted_key; // inserted_key값 노드의 element에 삽입
+		new_insert->key = inserted_key; // inserted_key값을 노드의 element에 삽입
 		new_insert->next_pointer = check_target->next_pointer; // 기준값을 지닌 노드가 원래 가르키던 next_pointer 승계
 		check_target->next_pointer = new_insert; // 기준 노드의 next_pointer로 새로 만든 new_insert 지정
 	}
