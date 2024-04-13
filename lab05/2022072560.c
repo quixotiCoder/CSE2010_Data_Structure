@@ -55,7 +55,6 @@ BSTNode* deleteNode(BSTNode* current, int key){ // main 함수 호출 조건에�
         }
  
     	//  자식이 하나일 경우 -> free current -> return 자식
-
 		else if(current->left == NULL){	// [else if] (= 일단 자식이 아예 없는 상태는 아닌 것이 보장) 중 오른쪽 자식만 있는 경우
             BSTNode* temp = current->right; // 오른쪽 자식을 임시 저장
             free(current); // 삭제될 노드 free를 통해 삭제
