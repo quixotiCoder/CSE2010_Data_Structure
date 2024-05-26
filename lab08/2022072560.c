@@ -100,8 +100,8 @@ int main(int argc, char* agrv[]) {
 		InsertEdge(G, a, b); // 위에서 만든 Graph(Adjacency Matrix)에 삽입
 	}
 
-	PrintGraph(G);
-    fprintf(fout, "\n");
+	PrintGraph(G); 
+    fprintf(fout, "\n"); // 한 줄 띄우고
 	TopologicalSort(G);
 	
 	DeleteGraph(G);
